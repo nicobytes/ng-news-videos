@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1920">
+    <title>Code Typing — macOS Terminal</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: relative;
+          width: 1080px;
+          height: 1920px;
+          overflow: hidden;
+          background: #000;
+          font-family: "JetBrains Mono", ui-monospace, monospace;
+          color: #e6edf3;
+        }
+        .term-stage {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0 48px;
+          background: radial-gradient(640px 720px at 50% 42%, #1a1a1e 0%, #000 72%);
+        }
+        .editor {
+          position: relative;
+          width: 960px;
+          height: 420px;
+          background: #1c1c1e;
+          border: 1px solid #2c2c2e;
+          border-radius: 14px;
+          box-shadow:
+            0 40px 120px rgba(0, 0, 0, 0.72),
+            0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+        }
+        .titlebar {
+          height: 48px;
+          flex: 0 0 48px;
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          padding: 0 18px;
+          background: linear-gradient(#2a2a2c, #1f1f21);
+          border-bottom: 1px solid #0f0f10;
+        }
+        .dots {
+          display: flex;
+          gap: 8px;
+        }
+        .dot {
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+        }
+        .dot.r {
+          background: #ff5f57;
+        }
+        .dot.y {
+          background: #febc2e;
+        }
+        .dot.g {
+          background: #28c840;
+        }
+        .filename {
+          font-size: 16px;
+          color: #a1a1a6;
+          letter-spacing: 0.2px;
+        }
+        .filename .accent {
+          color: #f5f5f7;
+        }
+        .code-surface {
+          position: relative;
+          flex: 1 1 auto;
+          overflow: hidden;
+          background: #0d0d0f;
+        }
+        .scene {
+          position: absolute;
+          inset: 0;
+          will-change: opacity;
+        }
+        .code {
+          position: absolute;
+          top: 40px;
+          left: 0;
+          right: 0;
+          padding: 0 28px;
+          font-size: 26px;
+          line-height: 42px;
+          font-variant-ligatures: none;
+        }
+        .line {
+          display: block;
+          min-height: 42px;
+          white-space: pre-wrap;
+          word-break: break-all;
+          position: relative;
+          z-index: 1;
+        }
+        .tok {
+          display: inline-block;
+          white-space: pre;
+          will-change: opacity;
+        }
+        .caret {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 14px;
+          height: 28px;
+          margin-top: 7px;
+          background: #28c840;
+          border-radius: 1px;
+          z-index: 3;
+          transform-origin: center bottom;
+        }
+      </style>
+
+      <div data-hf-id="hf-q88c" id="root" data-composition-id="code-typing" data-start="0" data-duration="4" data-width="1080" data-height="1920">
+        <div data-hf-id="hf-hpv2" class="term-stage" data-layout-ignore="">
+          <div data-hf-id="hf-eogz" class="editor" id="editor" data-layout-ignore="">
+            <div data-hf-id="hf-t179" class="titlebar">
+              <div data-hf-id="hf-zx1w" class="dots">
+                <span data-hf-id="hf-620k" class="dot r"></span><span data-hf-id="hf-65hz" class="dot y"></span><span data-hf-id="hf-4ih5" class="dot g"></span>
+              </div>
+              <span data-hf-id="hf-0erm" class="filename"><span data-hf-id="hf-n3f0" class="accent">zsh</span> — nicob@hyperframes — 80×24</span>
+            </div>
+            <div data-hf-id="hf-cuy0" class="code-surface" id="surface"></div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        (function () {
+          "use strict";
+
+          var CMD = "pnpm runtime set node lts -g";
+          var PROMPT = "$ ";
+          var PER = 0.065;
+          var FADE = 0.28;
+          var TYPE_START = 0.55;
+
+          function buildTokens() {
+            var tokens = [];
+            var i;
+            for (i = 0; i < PROMPT.length; i++) {
+              tokens.push({
+                key: "p" + i,
+                content: PROMPT[i],
+                color: "#28c840",
+                fontStyle: 0,
+              });
+            }
+            for (i = 0; i < CMD.length; i++) {
+              tokens.push({
+                key: "c" + i,
+                content: CMD[i],
+                color: "#f5f5f7",
+                fontStyle: 0,
+              });
+            }
+            return tokens;
+          }
+
+          function go() {
+            var surface = document.getElementById("surface");
+            var root = document.getElementById("root");
+            window.__timelines = window.__timelines || {};
+            var tl = gsap.timeline({ paused: true });
+
+            document.fonts.ready.then(function () {
+              var scene = document.createElement("div");
+              scene.className = "scene";
+              var code = document.createElement("div");
+              code.className = "code";
+              scene.appendChild(code);
+              surface.appendChild(scene);
+
+              var line = document.createElement("div");
+              line.className = "line";
+              code.appendChild(line);
+
+              var tokens = buildTokens();
+              var chars = [];
+              for (var i = 0; i < tokens.length; i++) {
+                var t = tokens[i];
+                var span = document.createElement("span");
+                span.className = "tok";
+                span.textContent = t.content;
+                span.style.color = t.color;
+                line.appendChild(span);
+                chars.push({ el: span, ws: t.content === " " });
+              }
+
+              var caret = document.createElement("div");
+              caret.className = "caret";
+              code.appendChild(caret);
+
+              var base = code.getBoundingClientRect();
+              tl.fromTo(
+                "#editor",
+                { opacity: 0, scale: 0.96 },
+                { opacity: 1, scale: 1, duration: 0.45, ease: "power2.out" },
+                0,
+              );
+              tl.set(scene, { opacity: 1 }, 0);
+
+              if (chars.length) {
+                var r0 = chars[0].el.getBoundingClientRect();
+                tl.set(
+                  caret,
+                  { x: r0.left - base.left, y: r0.top - base.top, opacity: 1 },
+                  0,
+                );
+              }
+
+              chars.forEach(function (c, idx) {
+                var at = TYPE_START + FADE + idx * PER;
+                tl.set(c.el, { opacity: 0 }, 0);
+                tl.to(
+                  c.el,
+                  { opacity: 1, duration: c.ws ? 0.01 : 0.1, ease: "power1.out" },
+                  at,
+                );
+                var r = c.el.getBoundingClientRect();
+                tl.to(
+                  caret,
+                  {
+                    x: r.right - base.left,
+                    y: r.top - base.top,
+                    duration: PER,
+                    ease: "none",
+                  },
+                  at,
+                );
+              });
+
+              var typedEnd = TYPE_START + FADE + chars.length * PER;
+              tl.to(
+                caret,
+                {
+                  opacity: 0,
+                  duration: 0.22,
+                  ease: "none",
+                  repeat: 5,
+                  yoyo: true,
+                },
+                typedEnd + 0.08,
+              );
+              tl.fromTo(
+                caret,
+                { scaleY: 1 },
+                { scaleY: 1.35, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 },
+                3.55,
+              );
+
+              var dur = parseFloat(root.dataset.duration) || 4;
+              tl.to({}, { duration: dur }, 0);
+              window.__timelines["code-typing"] = tl;
+              if (typeof window.__hfForceTimelineRebind === "function") {
+                window.__hfForceTimelineRebind();
+              }
+            });
+          }
+
+          if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", go);
+          } else {
+            go();
+          }
+        })();
+      </script>
+    </template>
+  </body>
+</html>

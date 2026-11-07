@@ -1,0 +1,43 @@
+{
+  "keep_english": [
+    "Angular",
+    "signals",
+    "standalone",
+    "Nx",
+    "PrimeNG",
+    "NgRx",
+    "RxJS",
+    "zoneless",
+    "SSR",
+    "hydration",
+    "Vite",
+    "esbuild",
+    "Module Federation",
+    "AI",
+    "pull request",
+    "changelog",
+    "Native Federation",
+    "Angular Architects",
+    "OpenNG",
+    "PrimeUI",
+    "NG News",
+    "Rspack",
+    "Webpack",
+    "PrimeTek",
+    "A2UI",
+    "routerResource"
+  ],
+  "asr_fixes": {
+    "Engie News": "NG News",
+    "Prime Engie": "PrimeNG",
+    "PrimeAngie": "PrimeNG",
+    "OpenAngie": "OpenNG",
+    "Model Federation": "Module Federation",
+    "Sbuild": "esbuild",
+    "angular architect": "Angular Architects",
+    "PrimeTech": "PrimeTek",
+    "Prime UI": "PrimeUI",
+    "módulo Federation": "Module Federation",
+    "micro -frontends": "micro-frontends"
+  }
+}

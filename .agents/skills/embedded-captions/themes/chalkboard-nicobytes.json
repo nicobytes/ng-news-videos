@@ -1,0 +1,52 @@
+{
+  "name": "chalkboard-nicobytes",
+  "voice": "night lecture on a nicobytes board — chalk rail in foam ink on a deep teal-night band, butter emphasis, mango rim; Rubik body kept chalk-scrawl via Caveat for handwriting authenticity on the band, JetBrains Mono tag chrome.",
+  "when": "nicobytes explainers / agent tutorials on 9:16 — brand palette over chalkboard DNA. Prefer when DESIGN.md + FRAME.md are in play.",
+  "register": "scholarly-warm",
+  "fonts": { "body": "Caveat", "tag": "VT323", "strokeFont": "HersheyScript1.svg" },
+  "palette": {
+    "body": "#F3FBF8",
+    "em": "#FFE56A",
+    "accent": "#E8F6F1",
+    "chalk": "#F3FBF8",
+    "dust": "#D5EDE6",
+    "board": "#0B1A17",
+    "boardHi": "#152A26",
+    "boardLo": "#0B1A17",
+    "bandHi": "#152A26",
+    "bandLo": "#0B1A17",
+    "rim": "#FF7A45",
+    "rimLo": "#1ECAD3"
+  },
+  "body": {
+    "paradigm": "chalkrail",
+    "layer": "fg",
+    "fontPx": 56,
+    "strip": { "w": 980, "h": 168, "bottomPx": 300 },
+    "rows": [30, 92],
+    "tag": "@nicobytes · AGENTE WHATSAPP",
+    "seed": 13,
+    "eraseDelay": 0.23,
+    "yield": { "dim": 0.55, "pre": 0.07, "post": 0.41 }
+  },
+  "hero": {
+    "setpiece": "chalkwrite",
+    "layer": "bg",
+    "params": {
+      "targetWidth": 860,
+      "window": 0.78,
+      "coreWidth": 7,
+      "haloWidth": 14,
+      "halo": 0.18,
+      "dustN": 8,
+      "seed": 7,
+      "jitterSeed": 21,
+      "dim": 0.22,
+      "vig": 0.35,
+      "boardGap": 0.554
+    }
+  },
+  "fx": { "chalkclap": 12, "seed": 13 },
+  "plate": { "grain": 4 },
+  "linkages": []
+}

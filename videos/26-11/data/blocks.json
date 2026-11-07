@@ -1,0 +1,156 @@
+[
+  {
+    "id": 0,
+    "topic": 0,
+    "kind": "presenter",
+    "en_start": 0.0,
+    "en_end": 5.667
+  },
+  {
+    "id": 1,
+    "topic": 1,
+    "kind": "presenter",
+    "en_start": 5.7,
+    "en_end": 29.8
+  },
+  {
+    "id": 2,
+    "topic": 1,
+    "kind": "screen",
+    "en_start": 29.833,
+    "en_end": 34.167
+  },
+  {
+    "id": 3,
+    "topic": 1,
+    "kind": "presenter",
+    "en_start": 34.2,
+    "en_end": 51.167
+  },
+  {
+    "id": 4,
+    "topic": 1,
+    "kind": "screen",
+    "en_start": 51.2,
+    "en_end": 98.483
+  },
+  {
+    "id": 5,
+    "topic": 1,
+    "kind": "presenter",
+    "en_start": 98.516,
+    "en_end": 132.167
+  },
+  {
+    "id": 6,
+    "topic": 1,
+    "kind": "screen",
+    "en_start": 132.2,
+    "en_end": 156.8
+  },
+  {
+    "id": 7,
+    "topic": 2,
+    "kind": "presenter",
+    "en_start": 156.833,
+    "en_end": 170.617
+  },
+  {
+    "id": 8,
+    "topic": 2,
+    "kind": "screen",
+    "en_start": 170.65,
+    "en_end": 241.05
+  },
+  {
+    "id": 9,
+    "topic": 2,
+    "kind": "presenter",
+    "en_start": 241.083,
+    "en_end": 257.8
+  },
+  {
+    "id": 10,
+    "topic": 3,
+    "kind": "screen",
+    "en_start": 257.833,
+    "en_end": 279.833
+  },
+  {
+    "id": 11,
+    "topic": 3,
+    "kind": "presenter",
+    "en_start": 279.866,
+    "en_end": 284.233
+  },
+  {
+    "id": 12,
+    "topic": 3,
+    "kind": "screen",
+    "en_start": 284.266,
+    "en_end": 296.133
+  },
+  {
+    "id": 13,
+    "topic": 4,
+    "kind": "presenter",
+    "en_start": 296.166,
+    "en_end": 312.667
+  },
+  {
+    "id": 14,
+    "topic": 4,
+    "kind": "screen",
+    "en_start": 312.7,
+    "en_end": 348.233
+  },
+  {
+    "id": 15,
+    "topic": 5,
+    "kind": "presenter",
+    "en_start": 348.266,
+    "en_end": 371.267
+  },
+  {
+    "id": 16,
+    "topic": 5,
+    "kind": "screen",
+    "en_start": 371.3,
+    "en_end": 391.833
+  },
+  {
+    "id": 17,
+    "topic": 6,
+    "kind": "presenter",
+    "en_start": 391.866,
+    "en_end": 402.55
+  },
+  {
+    "id": 18,
+    "topic": 6,
+    "kind": "screen",
+    "en_start": 402.583,
+    "en_end": 429.017
+  },
+  {
+    "id": 19,
+    "topic": 7,
+    "kind": "presenter",
+    "en_start": 429.05,
+    "en_end": 431.233
+  },
+  {
+    "id": 20,
+    "topic": 7,
+    "kind": "screen",
+    "en_start": 431.266,
+    "en_end": 435.867
+  },
+  {
+    "id": 21,
+    "topic": 7,
+    "kind": "presenter",
+    "en_start": 435.9,
+    "en_end": 440.5
+  }
+]

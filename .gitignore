@@ -1,0 +1,86 @@
+# Dependencies
+node_modules/
+.venv/
+__pycache__/
+
+# Generated renders and previews
+renders/
+out/
+*.mp4
+!shared/**/*.mp4
+.hyperframes/
+preview/
+.thumbnails/
+.waveform-cache/
+.media/
+
+# Frame dumps, snapshots and backups (regenerable)
+frames*/
+snapshots/
+history/
+backup*/
+public-nocap/
+public/snapshots/
+.scratch/
+
+# Music candidates (scripts/musicgen.py); only the chosen track is versioned
+drafts/
+
+# Vendored third-party runtimes (reinstall with the CLI)
+vendor/
+
+# Third-party reference material (study only, never in the output) and site captures
+refs/
+capture*/
+
+# Editor and OS
+.DS_Store
+.cursor/
+
+# Media pesada (footage, voz, música, mezclas, renders): no se versiona.
+# Guárdala fuera del repo (disco externo / nube); aquí solo viven guiones, composiciones y briefs.
+# Los efectos de sonido pequeños (assets/sfx/) sí se versionan.
+*.webm
+*.mov
+*.mkv
+*.m4a
+*.aac
+videos/*/assets/footage/
+videos/*/assets/cut/
+videos/*/assets/vo/
+videos/*/assets/music/
+videos/*/assets/audio/
+videos/*/assets/audio.wav
+videos/*/public/audio/music.wav
+videos/*/input-video.*
+videos/*/public/input-video.*
+voice*.wav
+mix.wav
+bed-*.wav
+track*.wav
+!shared/**/*.webm
+!shared/**/*.mov
+!shared/**/*.m4a
+
+# compositions/frames/ son escenas fuente, no volcados de fotogramas
+!videos/*/compositions/frames/
+
+# Metadatos de Windows/WSL
+*:Zone.Identifier
+
+# Secretos y config local
+.env
+.env.*
+.claude/settings.local.json
+.claude/worktrees/
+
+# Logs y volcados regenerables de la pipeline
+*.log
+videos/*/data/.transcribe.out
+videos/*/data/*.info.json
+videos/*/data/review/
+
+# Python
+*.pyc
+.pytest_cache/
+.ruff_cache/

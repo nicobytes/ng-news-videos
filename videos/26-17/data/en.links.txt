@@ -1,0 +1,5 @@
+https://primeui.dev/nextchapter
+https://www.linkedin.com/posts/openng_as-people-have-questions-about-the-future-activity-7479828161099198464-izyG
+https://blog.angular.dev/demystifying-a2ui-how-to-make-ai-agents-speak-ui-in-your-app-e1ffea2303bd
+https://github.com/angular/angular/pull/69490
+https://nx.dev/blog/nx-23-release#module-federation-aligned-with-upstream

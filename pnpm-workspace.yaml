@@ -1,0 +1,15 @@
+packages:
+  - "videos/*"
+
+allowBuilds:
+  "@google/genai": true
+  esbuild: true
+  onnxruntime-node: true
+  protobufjs: true
+
+minimumReleaseAgeExclude:
+  - hyperframes@0.8.164
+  - "@hyperframes/core@0.8.164"
+  - "@hyperframes/lint@0.8.164"
+  - "@hyperframes/parsers@0.8.164"
+  - "@hyperframes/studio-server@0.8.164"

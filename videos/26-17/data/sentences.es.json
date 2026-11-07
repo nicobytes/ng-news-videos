@@ -1,0 +1,242 @@
+[
+ {
+  "id": 0,
+  "start": 0.91,
+  "end": 6.69,
+  "text": "Hola, mi nombre es Ricardo Chavarría y esto es Engie News en español con las últimas novedades de la comunidad de Angular."
+ },
+ {
+  "id": 1,
+  "start": 7.01,
+  "end": 23.09,
+  "text": "Prime Engie, la popular librería de componentes de interfaz de usuario, anunció que sus futuras versiones principales ya no estarán disponibles como código abierto, salvo a través de una licencia comunitaria gratuita para personas individuales, estudiantes, organizaciones sin fines de lucro, proyectos open source no"
+ },
+ {
+  "id": 2,
+  "start": 23.09,
+  "end": 24.51,
+  "text": "comerciales y pequeñas empresas."
+ },
+ {
+  "id": 3,
+  "start": 24.51,
+  "end": 29.07,
+  "text": "empresa. Esto no solo aplica a la versión de Angular, sino también a la de React y Vue."
+ },
+ {
+  "id": 4,
+  "start": 29.23,
+  "end": 34.57,
+  "text": "La razón es que la librería ha crecido con el tiempo, lo que exige dedicarle mucho más trabajo."
+ },
+ {
+  "id": 5,
+  "start": 34.85,
+  "end": 40.63,
+  "text": "Y en cierto punto, los ingresos generados por la venta de productos complementarios ya no cubrían los costos de desarrollo."
+ },
+ {
+  "id": 6,
+  "start": 41.77,
+  "end": 44.03,
+  "text": "La nueva marca comercial es Prime UI."
+ },
+ {
+  "id": 7,
+  "start": 44.31,
+  "end": 48.05,
+  "text": "El precio de lanzamiento fue de $599 por desarrollador."
+ },
+ {
+  "id": 8,
+  "start": 48.29,
+  "end": 53.15,
+  "text": "Una licencia perpetua para las versiones cubiertas que incluye un año de de actualizaciones."
+ },
+ {
+  "id": 9,
+  "start": 53.33,
+  "end": 61.57,
+  "text": "También da acceso a Prime UI Pro, que incluye componentes avanzados para gráficos, editor de texto, planificador, tablero de tareas y más."
+ },
+ {
+  "id": 10,
+  "start": 61.73,
+  "end": 64.91,
+  "text": "Estos componentes Pro no forman parte de la licencia comunitaria."
+ },
+ {
+  "id": 11,
+  "start": 65.81,
+  "end": 72.55,
+  "text": "Ante esto, OpenNG, que se dedica a mantener librerías abandonadas, anunció que PrimeNG cerró su código."
+ },
+ {
+  "id": 12,
+  "start": 72.61,
+  "end": 82.45,
+  "text": "El repositorio oficial de GitHub fue archivado el 28 de junio de 2026 y OpenNG creó una copia del proyecto regenerando issues y pull requests pendientes."
+ },
+ {
+  "id": 13,
+  "start": 82.55,
+  "end": 87.83,
+  "text": "Su objetivo es lanzar una versión beta compatible con Angular 22 para este fork."
+ },
+ {
+  "id": 14,
+  "start": 87.99,
+  "end": 97.19,
+  "text": "Por el momento, el nombre definitivo no está cerrado, ya que OpenAngie busca evitar similitudes con PrimeAngie debido a los planes de registro de la marca PrimeTech."
+ },
+ {
+  "id": 15,
+  "start": 97.75,
+  "end": 107.75,
+  "text": "Serge Chassanov del equipo de Angular publicó un artículo sobre cómo usar A2UI con Angular, lo que permite crear interfaces dinámicas controladas por el modelo de inteligencia artificial."
+ },
+ {
+  "id": 16,
+  "start": 108.11,
+  "end": 114.63,
+  "text": "El usuario expresa una intención a través del frontend y este envía dicha intención junto con el contexto relevante a un modelo."
+ },
+ {
+  "id": 17,
+  "start": 115.31,
+  "end": 120.27,
+  "text": "Esta comunicación puede incluir además de un catálogo de componentes que el frontend sabe renderizar."
+ },
+ {
+  "id": 18,
+  "start": 120.55,
+  "end": 128.39,
+  "text": "El modelo decide si necesitan componentes visuales, cuáles son los más adecuados y devuelve instrucciones estructuradas a la aplicación."
+ },
+ {
+  "id": 19,
+  "start": 128.79,
+  "end": 133.87,
+  "text": "A2UI es el protocolo utilizado para estos casos de uso de interfaces generadas por agente."
+ },
+ {
+  "id": 20,
+  "start": 134.57,
+  "end": 139.37,
+  "text": "En otras noticias, ha comenzado el trabajo para integrar el comportamiento de resource con router."
+ },
+ {
+  "id": 21,
+  "start": 139.97,
+  "end": 148.77,
+  "text": "Apareció un pull request para uso interno que utiliza un comportamiento de tipo snapshot en el router result para incorporar información específica de navegación."
+ },
+ {
+  "id": 22,
+  "start": 149.09,
+  "end": 154.73,
+  "text": "Ese snapshot congelaría el estado del recurso, por ejemplo, su valor, mientras ocurre la navegación."
+ },
+ {
+  "id": 23,
+  "start": 154.81,
+  "end": 159.53,
+  "text": "Una vez que la navegación se completa con éxito, el nuevo valor queda expuesto."
+ },
+ {
+  "id": 24,
+  "start": 159.71,
+  "end": 163.67,
+  "text": "Si se cancela, el valor congelado permanece durante la recuperación."
+ },
+ {
+  "id": 25,
+  "start": 164.57,
+  "end": 167.09,
+  "text": "Imaginen el caso habitual sin esta funcionalidad."
+ },
+ {
+  "id": 26,
+  "start": 167.15,
+  "end": 172.25,
+  "text": "Un recurso tradicional toma como parámetro un dato en la ruta, por ejemplo, un ID de producto, para cargarlo."
+ },
+ {
+  "id": 27,
+  "start": 172.77,
+  "end": 183.89,
+  "text": "Si el usuario permanece en el mismo componente, pero navega hacia otro ID de producto, el recurso cambiaría inmediatamente su estado y la interfaz parpadearía durante la navegación."
+ },
+ {
+  "id": 28,
+  "start": 184.29,
+  "end": 192.63,
+  "text": "Esto provocaría efectos visuales molestos, sobre todo si un guard cancela la navegación y el ID debe regresar a su valor inicial."
+ },
+ {
+  "id": 29,
+  "start": 193.49,
+  "end": 196.65,
+  "text": "Con este nuevo comportamiento, esto ya no sucederá."
+ },
+ {
+  "id": 30,
+  "start": 196.77,
+  "end": 206.81,
+  "text": "La descripción del pull request aclara que no está expuesto aún para uso público, pero es claramente el primer paso para hacer que resource y router trabajen juntos."
+ },
+ {
+  "id": 31,
+  "start": 207.61,
+  "end": 214.95,
+  "text": "Para terminar, la adopción de micro -frontends sigue siendo una decisión arquitectónica común en entornos empresariales."
+ },
+ {
+  "id": 32,
+  "start": 215.05,
+  "end": 222.99,
+  "text": "Aunque no sea una característica nativa del framework Angular, Existen dos soluciones populares en la comunidad, Native Federation y Model Federation."
+ },
+ {
+  "id": 33,
+  "start": 223.39,
+  "end": 238.25,
+  "text": "La diferencia principal en Angular es que Native Federation funciona con Sbuild, el builder modelo de Angular, mientras que Model Federation trabaja tradicionalmente con el antiguo Webpack o alternativas como Rspack."
+ },
+ {
+  "id": 34,
+  "start": 238.25,
+  "end": 259.01,
+  "text": "native federation está mantenido por angular architect y el soporte de model federation en nx ha sido el estándar habitual en estos espacios de trabajo sin embargo en la publicación de lanzamiento de nx 23 el equipo ahora recomienda oficialmente el paquete native federation de"
+ },
+ {
+  "id": 35,
+  "start": 259.01,
+  "end": 268.57,
+  "text": "angular architect para angular marcando como obsoletos los generadores y ejecutores específicos del módulo Federation anteriores dentro de NX."
+ },
+ {
+  "id": 36,
+  "start": 268.77,
+  "end": 269.81,
+  "text": "Y eso es todo."
+ },
+ {
+  "id": 37,
+  "start": 269.91,
+  "end": 271.79,
+  "text": "Espero que tengas una excelente semana."
+ },
+ {
+  "id": 38,
+  "start": 271.97,
+  "end": 273.61,
+  "text": "Nos vemos en el próximo episodio."
+ },
+ {
+  "id": 39,
+  "start": 273.63,
+  "end": 274.21,
+  "text": "Hasta luego."
+ }
+]

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1920">
+    <title>Kinetic Outro</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: relative;
+          width: 1080px;
+          height: 1920px;
+          overflow: hidden;
+          background: #000;
+          pointer-events: none;
+        }
+        #kt-container {
+          position: absolute;
+          inset: 0;
+          z-index: 10;
+        }
+        .kt-line {
+          position: absolute;
+          left: 0;
+          width: 100%;
+          text-align: center;
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 0.22em;
+          padding: 0 48px;
+          box-sizing: border-box;
+        }
+        .kt-line.line-a {
+          top: 40%;
+        }
+        .kt-line.line-b {
+          top: 52%;
+        }
+        .kt-word {
+          font-family: "Archivo Black", "Montserrat", sans-serif;
+          font-weight: 400;
+          text-transform: uppercase;
+          color: #ffffff;
+          letter-spacing: 0.03em;
+          line-height: 1;
+          font-size: 72px;
+          opacity: 0;
+          visibility: hidden;
+          display: inline-block;
+          will-change: transform, opacity;
+        }
+        .kt-word.emphasis {
+          font-size: 84px;
+        }
+      </style>
+
+      <div data-hf-id="hf-d78h" id="root" data-composition-id="kinetic-outro" data-start="0" data-duration="3" data-width="1080" data-height="1920">
+        <div data-hf-id="hf-53vy" id="kt-container"></div>
+      </div>
+
+      <script>
+        (function () {
+          window.__timelines = window.__timelines || {};
+
+          var LINE_A = [
+            { text: "YOU", start: 0.0 },
+            { text: "JUST", start: 0.18 },
+            { text: "MADE", start: 0.36 },
+            { text: "THIS", start: 0.54 },
+          ];
+          var LINE_B = [
+            { text: "WITH", start: 1.05 },
+            { text: "HYPERFRAMES.", start: 1.28, emphasis: true },
+          ];
+
+          var container = document.getElementById("kt-container");
+          var lineA = document.createElement("div");
+          lineA.className = "kt-line line-a";
+          var lineB = document.createElement("div");
+          lineB.className = "kt-line line-b";
+          container.appendChild(lineA);
+          container.appendChild(lineB);
+
+          var tl = gsap.timeline({ paused: true });
+
+          function slamWord(parent, w, wi) {
+            var el = document.createElement("div");
+            el.className = "kt-word" + (w.emphasis ? " emphasis" : "");
+            el.id = "kt-w-" + wi;
+            el.textContent = w.text;
+            parent.appendChild(el);
+
+            var mode = wi % 4;
+            tl.set(el, { visibility: "visible" }, w.start);
+            if (mode === 0) {
+              tl.fromTo(
+                el,
+                { y: -100, opacity: 0, scale: 1.15 },
+                { y: 0, opacity: 1, scale: 1, duration: 0.22, ease: "back.out(1.8)" },
+                w.start,
+              );
+            } else if (mode === 1) {
+              tl.fromTo(
+                el,
+                { x: -180, opacity: 0 },
+                { x: 0, opacity: 1, duration: 0.2, ease: "expo.out" },
+                w.start,
+              );
+            } else if (mode === 2) {
+              tl.fromTo(
+                el,
+                { x: 180, opacity: 0 },
+                { x: 0, opacity: 1, duration: 0.2, ease: "expo.out" },
+                w.start,
+              );
+            } else {
+              tl.fromTo(
+                el,
+                { scale: 0.35, opacity: 0 },
+                { scale: 1, opacity: 1, duration: 0.24, ease: "back.out(2.2)" },
+                w.start,
+              );
+            }
+          }
+
+          LINE_A.forEach(function (w, i) {
+            slamWord(lineA, w, i);
+          });
+          LINE_B.forEach(function (w, i) {
+            slamWord(lineB, w, i + LINE_A.length);
+          });
+
+          tl.to({}, { duration: 3 }, 0);
+          tl.seek(0);
+          window.__timelines["kinetic-outro"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

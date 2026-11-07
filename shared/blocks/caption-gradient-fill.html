@@ -1,0 +1,1290 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Gradient Fill Captions</title>
+    <style>
+      @font-face {
+        font-family: "Inter";
+        src: url("videos/pnpm12/public/fonts/Inter-700-latin.woff2") format("woff2");
+        font-weight: 700;
+        font-display: block;
+      }
+      @font-face {
+        font-family: "Inter";
+        src: url("videos/pnpm12/public/fonts/Inter-400-latin.woff2") format("woff2");
+        font-weight: 400;
+        font-display: block;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1080px;
+        height: 1920px;
+        margin: 0;
+        overflow: hidden;
+        background: transparent;
+      }
+      #gradient-fill {
+        pointer-events: none;
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: transparent;
+      }
+      #gr-container {
+        position: absolute;
+        inset: 0;
+        z-index: 10;
+        pointer-events: none;
+      }
+      .gr-group {
+        position: absolute;
+        bottom: 160px;
+        left: 0;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        justify-content: center;
+        gap: 18px;
+        padding: 0 40px;
+        opacity: 0;
+        visibility: hidden;
+      }
+      .gr-word {
+        font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+        font-weight: 700;
+        font-size: 64px;
+        display: inline-block;
+        letter-spacing: 0.02em;
+        line-height: 1.15;
+        padding-bottom: 0.05em;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        background-size: 350% 100%;
+        background-position: 100% 0;
+        transform-origin: center bottom;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="gradient-fill"
+      data-composition-id="caption-gradient-fill"
+      data-timeline-locked
+      data-start="0"
+      data-duration="57.9"
+      data-fps="30"
+      data-width="1080"
+      data-height="1920"
+    >
+      <div id="gr-container"></div>
+    </div>
+
+    <script src="videos/pnpm12/public/vendor/gsap.min.js"></script>
+    <script>
+      (function () {
+        window.__timelines = window.__timelines || {};
+
+        var _fitCanvas = document.createElement("canvas");
+        var _fitCtx = _fitCanvas.getContext("2d");
+        function fitFontSize(text, baseFontSize, fontWeight, fontFamily, maxWidth) {
+          var size = baseFontSize;
+          var minSize = Math.floor(baseFontSize * 0.45);
+          while (size > minSize) {
+            _fitCtx.font = fontWeight + " " + size + "px " + fontFamily;
+            if (_fitCtx.measureText(text).width <= maxWidth) return size;
+            size -= 2;
+          }
+          return minSize;
+        }
+
+        var WORDS = [
+  {
+    "text": "Con",
+    "start": 0.08,
+    "end": 0.368
+  },
+  {
+    "text": "la",
+    "start": 0.368,
+    "end": 0.656
+  },
+  {
+    "text": "nueva",
+    "start": 0.656,
+    "end": 0.944
+  },
+  {
+    "text": "versión",
+    "start": 0.944,
+    "end": 1.232
+  },
+  {
+    "text": "de",
+    "start": 1.232,
+    "end": 1.52
+  },
+  {
+    "text": "pnpm",
+    "start": 1.52,
+    "end": 1.808
+  },
+  {
+    "text": "en",
+    "start": 1.808,
+    "end": 2.096
+  },
+  {
+    "text": "la",
+    "start": 2.096,
+    "end": 2.384
+  },
+  {
+    "text": "versión",
+    "start": 2.384,
+    "end": 2.672
+  },
+  {
+    "text": "12",
+    "start": 2.672,
+    "end": 2.96
+  },
+  {
+    "text": "puedo",
+    "start": 2.96,
+    "end": 3.273
+  },
+  {
+    "text": "reemplazar",
+    "start": 3.273,
+    "end": 3.587
+  },
+  {
+    "text": "dos",
+    "start": 3.587,
+    "end": 3.9
+  },
+  {
+    "text": "herramientas",
+    "start": 3.9,
+    "end": 4.213
+  },
+  {
+    "text": "que",
+    "start": 4.213,
+    "end": 4.527
+  },
+  {
+    "text": "para",
+    "start": 4.527,
+    "end": 4.84
+  },
+  {
+    "text": "mí",
+    "start": 4.84,
+    "end": 5.114
+  },
+  {
+    "text": "eran",
+    "start": 5.114,
+    "end": 5.389
+  },
+  {
+    "text": "muy",
+    "start": 5.389,
+    "end": 5.663
+  },
+  {
+    "text": "importantes",
+    "start": 5.663,
+    "end": 5.937
+  },
+  {
+    "text": "y",
+    "start": 5.937,
+    "end": 6.211
+  },
+  {
+    "text": "ahora",
+    "start": 6.211,
+    "end": 6.486
+  },
+  {
+    "text": "simplemente",
+    "start": 6.486,
+    "end": 6.76
+  },
+  {
+    "text": "manejo",
+    "start": 6.76,
+    "end": 7.143
+  },
+  {
+    "text": "solo",
+    "start": 7.143,
+    "end": 7.526
+  },
+  {
+    "text": "una",
+    "start": 7.526,
+    "end": 7.909
+  },
+  {
+    "text": "y",
+    "start": 7.909,
+    "end": 8.291
+  },
+  {
+    "text": "confío",
+    "start": 8.291,
+    "end": 8.674
+  },
+  {
+    "text": "en",
+    "start": 8.674,
+    "end": 9.057
+  },
+  {
+    "text": "pnpm.",
+    "start": 9.057,
+    "end": 9.44
+  },
+  {
+    "text": "La",
+    "start": 9.44,
+    "end": 9.733
+  },
+  {
+    "text": "primera",
+    "start": 9.733,
+    "end": 10.027
+  },
+  {
+    "text": "es",
+    "start": 10.027,
+    "end": 10.32
+  },
+  {
+    "text": "Node",
+    "start": 10.32,
+    "end": 10.613
+  },
+  {
+    "text": "Version",
+    "start": 10.613,
+    "end": 10.907
+  },
+  {
+    "text": "Manager.",
+    "start": 10.907,
+    "end": 11.2
+  },
+  {
+    "text": "Normalmente",
+    "start": 11.28,
+    "end": 11.6
+  },
+  {
+    "text": "cuando",
+    "start": 11.6,
+    "end": 11.92
+  },
+  {
+    "text": "tú",
+    "start": 11.92,
+    "end": 12.24
+  },
+  {
+    "text": "desarrollas",
+    "start": 12.48,
+    "end": 12.84
+  },
+  {
+    "text": "en",
+    "start": 12.84,
+    "end": 13.2
+  },
+  {
+    "text": "diferentes",
+    "start": 13.2,
+    "end": 13.56
+  },
+  {
+    "text": "proyectos,",
+    "start": 13.56,
+    "end": 13.92
+  },
+  {
+    "text": "diferentes",
+    "start": 13.92,
+    "end": 14.296
+  },
+  {
+    "text": "frameworks,",
+    "start": 14.296,
+    "end": 14.672
+  },
+  {
+    "text": "tienes",
+    "start": 14.672,
+    "end": 15.048
+  },
+  {
+    "text": "que",
+    "start": 15.048,
+    "end": 15.424
+  },
+  {
+    "text": "gestionar",
+    "start": 15.424,
+    "end": 15.8
+  },
+  {
+    "text": "diferentes",
+    "start": 15.8,
+    "end": 16.206
+  },
+  {
+    "text": "versiones",
+    "start": 16.206,
+    "end": 16.611
+  },
+  {
+    "text": "de",
+    "start": 16.611,
+    "end": 17.017
+  },
+  {
+    "text": "Node",
+    "start": 17.017,
+    "end": 17.423
+  },
+  {
+    "text": "como",
+    "start": 17.423,
+    "end": 17.829
+  },
+  {
+    "text": "en",
+    "start": 17.829,
+    "end": 18.234
+  },
+  {
+    "text": "tu",
+    "start": 18.234,
+    "end": 18.64
+  },
+  {
+    "text": "misma",
+    "start": 18.64,
+    "end": 18.96
+  },
+  {
+    "text": "máquina",
+    "start": 18.96,
+    "end": 19.28
+  },
+  {
+    "text": "para",
+    "start": 19.28,
+    "end": 19.6
+  },
+  {
+    "text": "diferentes",
+    "start": 19.6,
+    "end": 19.92
+  },
+  {
+    "text": "proyectos",
+    "start": 19.92,
+    "end": 20.24
+  },
+  {
+    "text": "eso",
+    "start": 20.24,
+    "end": 20.56
+  },
+  {
+    "text": "es",
+    "start": 20.56,
+    "end": 20.855
+  },
+  {
+    "text": "un",
+    "start": 20.855,
+    "end": 21.15
+  },
+  {
+    "text": "dolor",
+    "start": 21.15,
+    "end": 21.445
+  },
+  {
+    "text": "de",
+    "start": 21.445,
+    "end": 21.74
+  },
+  {
+    "text": "cabeza",
+    "start": 21.74,
+    "end": 22.035
+  },
+  {
+    "text": "lo",
+    "start": 22.035,
+    "end": 22.33
+  },
+  {
+    "text": "solucionamos",
+    "start": 22.33,
+    "end": 22.625
+  },
+  {
+    "text": "con",
+    "start": 22.625,
+    "end": 22.92
+  },
+  {
+    "text": "Node",
+    "start": 22.92,
+    "end": 23.143
+  },
+  {
+    "text": "Version",
+    "start": 23.143,
+    "end": 23.366
+  },
+  {
+    "text": "Manager",
+    "start": 23.366,
+    "end": 23.589
+  },
+  {
+    "text": "pero",
+    "start": 23.589,
+    "end": 23.811
+  },
+  {
+    "text": "ahora",
+    "start": 23.811,
+    "end": 24.034
+  },
+  {
+    "text": "estoy",
+    "start": 24.034,
+    "end": 24.257
+  },
+  {
+    "text": "ya",
+    "start": 24.257,
+    "end": 24.48
+  },
+  {
+    "text": "bien",
+    "start": 24.48,
+    "end": 24.785
+  },
+  {
+    "text": "integrado",
+    "start": 24.785,
+    "end": 25.09
+  },
+  {
+    "text": "en",
+    "start": 25.09,
+    "end": 25.395
+  },
+  {
+    "text": "la",
+    "start": 25.395,
+    "end": 25.7
+  },
+  {
+    "text": "versión",
+    "start": 25.7,
+    "end": 26.005
+  },
+  {
+    "text": "2",
+    "start": 26.005,
+    "end": 26.31
+  },
+  {
+    "text": "de",
+    "start": 26.31,
+    "end": 26.615
+  },
+  {
+    "text": "pnpm",
+    "start": 26.615,
+    "end": 26.92
+  },
+  {
+    "text": "simplemente",
+    "start": 26.92,
+    "end": 27.38
+  },
+  {
+    "text": "colocas",
+    "start": 27.38,
+    "end": 27.84
+  },
+  {
+    "text": "como",
+    "start": 28.08,
+    "end": 28.38
+  },
+  {
+    "text": "un",
+    "start": 28.38,
+    "end": 28.68
+  },
+  {
+    "text": "nuevo",
+    "start": 28.68,
+    "end": 28.98
+  },
+  {
+    "text": "tag",
+    "start": 28.98,
+    "end": 29.28
+  },
+  {
+    "text": "en",
+    "start": 29.28,
+    "end": 29.58
+  },
+  {
+    "text": "tu",
+    "start": 29.58,
+    "end": 29.88
+  },
+  {
+    "text": "package.json",
+    "start": 29.88,
+    "end": 30.18
+  },
+  {
+    "text": "y",
+    "start": 30.18,
+    "end": 30.48
+  },
+  {
+    "text": "listo",
+    "start": 30.48,
+    "end": 30.749
+  },
+  {
+    "text": "lo",
+    "start": 30.749,
+    "end": 31.017
+  },
+  {
+    "text": "segundo",
+    "start": 31.017,
+    "end": 31.286
+  },
+  {
+    "text": "es",
+    "start": 31.286,
+    "end": 31.554
+  },
+  {
+    "text": "la",
+    "start": 31.554,
+    "end": 31.823
+  },
+  {
+    "text": "gestión",
+    "start": 31.823,
+    "end": 32.091
+  },
+  {
+    "text": "de",
+    "start": 32.091,
+    "end": 32.36
+  },
+  {
+    "text": "dependencias",
+    "start": 32.36,
+    "end": 32.693
+  },
+  {
+    "text": "que",
+    "start": 32.693,
+    "end": 33.027
+  },
+  {
+    "text": "normalmente",
+    "start": 33.027,
+    "end": 33.36
+  },
+  {
+    "text": "by",
+    "start": 33.36,
+    "end": 33.693
+  },
+  {
+    "text": "default",
+    "start": 33.693,
+    "end": 34.027
+  },
+  {
+    "text": "en",
+    "start": 34.027,
+    "end": 34.36
+  },
+  {
+    "text": "Node",
+    "start": 34.36,
+    "end": 34.745
+  },
+  {
+    "text": "viene",
+    "start": 34.745,
+    "end": 35.13
+  },
+  {
+    "text": "NPM",
+    "start": 35.13,
+    "end": 35.515
+  },
+  {
+    "text": "sin",
+    "start": 35.515,
+    "end": 35.9
+  },
+  {
+    "text": "embargo",
+    "start": 35.9,
+    "end": 36.285
+  },
+  {
+    "text": "NPM",
+    "start": 36.285,
+    "end": 36.67
+  },
+  {
+    "text": "es",
+    "start": 36.67,
+    "end": 37.055
+  },
+  {
+    "text": "un",
+    "start": 37.055,
+    "end": 37.44
+  },
+  {
+    "text": "poquito",
+    "start": 37.44,
+    "end": 37.726
+  },
+  {
+    "text": "lento",
+    "start": 37.726,
+    "end": 38.011
+  },
+  {
+    "text": "y",
+    "start": 38.011,
+    "end": 38.297
+  },
+  {
+    "text": "además",
+    "start": 38.297,
+    "end": 38.583
+  },
+  {
+    "text": "tiene",
+    "start": 38.583,
+    "end": 38.869
+  },
+  {
+    "text": "muchos",
+    "start": 38.869,
+    "end": 39.154
+  },
+  {
+    "text": "issues",
+    "start": 39.154,
+    "end": 39.44
+  },
+  {
+    "text": "de",
+    "start": 39.44,
+    "end": 39.73
+  },
+  {
+    "text": "seguridad",
+    "start": 39.73,
+    "end": 40.02
+  },
+  {
+    "text": "y",
+    "start": 40.02,
+    "end": 40.31
+  },
+  {
+    "text": "eso",
+    "start": 40.31,
+    "end": 40.6
+  },
+  {
+    "text": "no",
+    "start": 40.6,
+    "end": 40.89
+  },
+  {
+    "text": "se",
+    "start": 40.89,
+    "end": 41.18
+  },
+  {
+    "text": "ha",
+    "start": 41.18,
+    "end": 41.47
+  },
+  {
+    "text": "solucionado",
+    "start": 41.47,
+    "end": 41.76
+  },
+  {
+    "text": "entonces",
+    "start": 42,
+    "end": 42.297
+  },
+  {
+    "text": "pnpm",
+    "start": 42.297,
+    "end": 42.594
+  },
+  {
+    "text": "es",
+    "start": 42.594,
+    "end": 42.891
+  },
+  {
+    "text": "mucho",
+    "start": 42.891,
+    "end": 43.189
+  },
+  {
+    "text": "más",
+    "start": 43.189,
+    "end": 43.486
+  },
+  {
+    "text": "seguro,",
+    "start": 43.486,
+    "end": 43.783
+  },
+  {
+    "text": "se",
+    "start": 43.783,
+    "end": 44.08
+  },
+  {
+    "text": "reescribió",
+    "start": 44.08,
+    "end": 44.493
+  },
+  {
+    "text": "en",
+    "start": 44.493,
+    "end": 44.907
+  },
+  {
+    "text": "Rust,",
+    "start": 44.907,
+    "end": 45.32
+  },
+  {
+    "text": "entonces",
+    "start": 45.32,
+    "end": 45.733
+  },
+  {
+    "text": "es",
+    "start": 45.733,
+    "end": 46.147
+  },
+  {
+    "text": "rapidísimo,",
+    "start": 46.147,
+    "end": 46.56
+  },
+  {
+    "text": "evita",
+    "start": 46.56,
+    "end": 47
+  },
+  {
+    "text": "ataques",
+    "start": 47,
+    "end": 47.44
+  },
+  {
+    "text": "de.",
+    "start": 47.44,
+    "end": 47.88
+  },
+  {
+    "text": "Entonces",
+    "start": 48,
+    "end": 48.544
+  },
+  {
+    "text": "con",
+    "start": 48.544,
+    "end": 49.088
+  },
+  {
+    "text": "esto",
+    "start": 49.088,
+    "end": 49.632
+  },
+  {
+    "text": "yo",
+    "start": 49.632,
+    "end": 50.176
+  },
+  {
+    "text": "literalmente",
+    "start": 50.176,
+    "end": 50.72
+  },
+  {
+    "text": "desinstalé",
+    "start": 50.72,
+    "end": 51.058
+  },
+  {
+    "text": "npm",
+    "start": 51.058,
+    "end": 51.396
+  },
+  {
+    "text": "y",
+    "start": 51.396,
+    "end": 51.733
+  },
+  {
+    "text": "además",
+    "start": 51.733,
+    "end": 52.071
+  },
+  {
+    "text": "de",
+    "start": 52.071,
+    "end": 52.409
+  },
+  {
+    "text": "eso,",
+    "start": 52.409,
+    "end": 52.747
+  },
+  {
+    "text": "pues",
+    "start": 52.747,
+    "end": 53.084
+  },
+  {
+    "text": "no",
+    "start": 53.084,
+    "end": 53.422
+  },
+  {
+    "text": "es",
+    "start": 53.422,
+    "end": 53.76
+  },
+  {
+    "text": "versión",
+    "start": 53.76,
+    "end": 53.977
+  },
+  {
+    "text": "manager",
+    "start": 53.977,
+    "end": 54.194
+  },
+  {
+    "text": "y",
+    "start": 54.194,
+    "end": 54.411
+  },
+  {
+    "text": "ahora",
+    "start": 54.411,
+    "end": 54.629
+  },
+  {
+    "text": "solo",
+    "start": 54.629,
+    "end": 54.846
+  },
+  {
+    "text": "tengo",
+    "start": 54.846,
+    "end": 55.063
+  },
+  {
+    "text": "una",
+    "start": 55.063,
+    "end": 55.28
+  },
+  {
+    "text": "herramienta",
+    "start": 55.28,
+    "end": 55.587
+  },
+  {
+    "text": "para",
+    "start": 55.587,
+    "end": 55.893
+  },
+  {
+    "text": "la",
+    "start": 55.893,
+    "end": 56.2
+  },
+  {
+    "text": "gestión",
+    "start": 56.2,
+    "end": 56.507
+  },
+  {
+    "text": "de",
+    "start": 56.507,
+    "end": 56.813
+  },
+  {
+    "text": "dependencias",
+    "start": 56.813,
+    "end": 57.12
+  },
+  {
+    "text": "en",
+    "start": 57.12,
+    "end": 57.48
+  },
+  {
+    "text": "Node.",
+    "start": 57.48,
+    "end": 57.84
+  }
+];
+
+        var GROUPS = [
+  {
+    "wordStart": 0,
+    "wordEnd": 4,
+    "start": 0.08,
+    "end": 1.52
+  },
+  {
+    "wordStart": 5,
+    "wordEnd": 9,
+    "start": 1.52,
+    "end": 2.96
+  },
+  {
+    "wordStart": 10,
+    "wordEnd": 14,
+    "start": 2.96,
+    "end": 4.527
+  },
+  {
+    "wordStart": 15,
+    "wordEnd": 19,
+    "start": 4.527,
+    "end": 5.937
+  },
+  {
+    "wordStart": 20,
+    "wordEnd": 24,
+    "start": 5.937,
+    "end": 7.526
+  },
+  {
+    "wordStart": 25,
+    "wordEnd": 29,
+    "start": 7.526,
+    "end": 9.44
+  },
+  {
+    "wordStart": 30,
+    "wordEnd": 34,
+    "start": 9.44,
+    "end": 10.907
+  },
+  {
+    "wordStart": 35,
+    "wordEnd": 39,
+    "start": 10.907,
+    "end": 12.84
+  },
+  {
+    "wordStart": 40,
+    "wordEnd": 42,
+    "start": 12.84,
+    "end": 13.92
+  },
+  {
+    "wordStart": 43,
+    "wordEnd": 44,
+    "start": 13.92,
+    "end": 14.672
+  },
+  {
+    "wordStart": 45,
+    "wordEnd": 49,
+    "start": 14.672,
+    "end": 16.611
+  },
+  {
+    "wordStart": 50,
+    "wordEnd": 54,
+    "start": 16.611,
+    "end": 18.64
+  },
+  {
+    "wordStart": 55,
+    "wordEnd": 59,
+    "start": 18.64,
+    "end": 20.24
+  },
+  {
+    "wordStart": 60,
+    "wordEnd": 64,
+    "start": 20.24,
+    "end": 21.74
+  },
+  {
+    "wordStart": 65,
+    "wordEnd": 69,
+    "start": 21.74,
+    "end": 23.143
+  },
+  {
+    "wordStart": 70,
+    "wordEnd": 74,
+    "start": 23.143,
+    "end": 24.257
+  },
+  {
+    "wordStart": 75,
+    "wordEnd": 79,
+    "start": 24.257,
+    "end": 25.7
+  },
+  {
+    "wordStart": 80,
+    "wordEnd": 84,
+    "start": 25.7,
+    "end": 27.38
+  },
+  {
+    "wordStart": 85,
+    "wordEnd": 89,
+    "start": 27.38,
+    "end": 29.28
+  },
+  {
+    "wordStart": 90,
+    "wordEnd": 94,
+    "start": 29.28,
+    "end": 30.749
+  },
+  {
+    "wordStart": 95,
+    "wordEnd": 99,
+    "start": 30.749,
+    "end": 32.091
+  },
+  {
+    "wordStart": 100,
+    "wordEnd": 104,
+    "start": 32.091,
+    "end": 33.693
+  },
+  {
+    "wordStart": 105,
+    "wordEnd": 109,
+    "start": 33.693,
+    "end": 35.515
+  },
+  {
+    "wordStart": 110,
+    "wordEnd": 114,
+    "start": 35.515,
+    "end": 37.44
+  },
+  {
+    "wordStart": 115,
+    "wordEnd": 119,
+    "start": 37.44,
+    "end": 38.869
+  },
+  {
+    "wordStart": 120,
+    "wordEnd": 124,
+    "start": 38.869,
+    "end": 40.31
+  },
+  {
+    "wordStart": 125,
+    "wordEnd": 129,
+    "start": 40.31,
+    "end": 41.76
+  },
+  {
+    "wordStart": 130,
+    "wordEnd": 134,
+    "start": 42,
+    "end": 43.486
+  },
+  {
+    "wordStart": 135,
+    "wordEnd": 139,
+    "start": 43.486,
+    "end": 45.32
+  },
+  {
+    "wordStart": 140,
+    "wordEnd": 142,
+    "start": 45.32,
+    "end": 46.56
+  },
+  {
+    "wordStart": 143,
+    "wordEnd": 145,
+    "start": 46.56,
+    "end": 47.88
+  },
+  {
+    "wordStart": 146,
+    "wordEnd": 150,
+    "start": 48,
+    "end": 50.72
+  },
+  {
+    "wordStart": 151,
+    "wordEnd": 155,
+    "start": 50.72,
+    "end": 52.409
+  },
+  {
+    "wordStart": 156,
+    "wordEnd": 160,
+    "start": 52.409,
+    "end": 53.977
+  },
+  {
+    "wordStart": 161,
+    "wordEnd": 165,
+    "start": 53.977,
+    "end": 55.063
+  },
+  {
+    "wordStart": 166,
+    "wordEnd": 170,
+    "start": 55.063,
+    "end": 56.507
+  },
+  {
+    "wordStart": 171,
+    "wordEnd": 174,
+    "start": 56.507,
+    "end": 57.84
+  }
+];
+
+        // Design tokens — terminal / noir palette (pnpm12 composition)
+        var TOKEN_GRAD =
+          "linear-gradient(90deg, " +
+          "#4ade80 0%, #fbbf24 14%, #60a5fa 28%, " +
+          "#f472b6 42%, #4ade80 50%, " +
+          "#e6edf3 50.5%, #e6edf3 100%)";
+
+        var container = document.getElementById("gr-container");
+        var tl = gsap.timeline({ paused: true });
+
+        GROUPS.forEach(function (g, gi) {
+          var groupWords = WORDS.slice(g.wordStart, g.wordEnd + 1);
+          var groupText = groupWords
+            .map(function (w) {
+              return w.text;
+            })
+            .join(" ");
+          var fontSize = fitFontSize(groupText, 64, "700", "'Inter', sans-serif", 1000);
+          var grp = document.createElement("div");
+          grp.className = "gr-group";
+          grp.id = "gr-grp-" + gi;
+
+          groupWords.forEach(function (w, i) {
+            var wi = g.wordStart + i;
+            var span = document.createElement("span");
+            span.className = "gr-word";
+            span.id = "gr-w-" + wi;
+            span.textContent = w.text;
+            span.style.fontSize = fontSize + "px";
+            span.style.background = TOKEN_GRAD;
+            span.style.backgroundSize = "350% 100%";
+            span.style.backgroundPosition = "100% 0";
+            span.style.webkitBackgroundClip = "text";
+            span.style.backgroundClip = "text";
+            grp.appendChild(span);
+          });
+
+          container.appendChild(grp);
+
+          tl.set(grp, { visibility: "visible", opacity: 1 }, g.start);
+
+          var lastWordEnd = groupWords[groupWords.length - 1].end;
+          var nextStart = gi < GROUPS.length - 1 ? GROUPS[gi + 1].start : lastWordEnd + 0.45;
+          var gap = Math.max(0.08, nextStart - lastWordEnd);
+          var fadeDur = Math.min(0.22, gap * 0.75);
+          var fadeStart = nextStart - fadeDur;
+          var groupEnd = nextStart;
+
+          groupWords.forEach(function (w, i) {
+            var wi = g.wordStart + i;
+            var el = document.getElementById("gr-w-" + wi);
+            var dur = Math.max(0.08, w.end - w.start);
+
+            tl.set(el, { backgroundPosition: "100% 0", scale: 0.55, opacity: 0 }, g.start);
+            // Elastic bounce entrance on spoken cue
+            tl.fromTo(
+              el,
+              { scale: 0.55, opacity: 0, y: 18 },
+              { scale: 1, opacity: 1, y: 0, duration: Math.min(0.42, dur + 0.12), ease: "elastic.out(1, 0.55)" },
+              w.start,
+            );
+            tl.fromTo(
+              el,
+              { backgroundPosition: "45% 0" },
+              { backgroundPosition: "0% 0", duration: dur, ease: "none" },
+              w.start,
+            );
+            tl.set(el, { backgroundPosition: "100% 0" }, w.end);
+          });
+
+          tl.to(grp, { opacity: 0, duration: fadeDur, ease: "power2.in" }, fadeStart);
+          tl.set(grp, { visibility: "hidden" }, groupEnd);
+        });
+
+        window.__timelines["caption-gradient-fill"] = tl;
+      })();
+    </script>
+  </body>
+</html>
