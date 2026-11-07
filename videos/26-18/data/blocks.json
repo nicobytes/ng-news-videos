@@ -1,0 +1,72 @@
+[
+  {
+    "id": 0,
+    "topic": 0,
+    "kind": "presenter",
+    "en_start": 0.0,
+    "en_end": 15.917
+  },
+  {
+    "id": 1,
+    "topic": 0,
+    "kind": "screen",
+    "en_start": 15.95,
+    "en_end": 27.417
+  },
+  {
+    "id": 2,
+    "topic": 0,
+    "kind": "presenter",
+    "en_start": 27.45,
+    "en_end": 49.75
+  },
+  {
+    "id": 3,
+    "topic": 0,
+    "kind": "screen",
+    "en_start": 49.783,
+    "en_end": 68.933
+  },
+  {
+    "id": 4,
+    "topic": 0,
+    "kind": "presenter",
+    "en_start": 68.966,
+    "en_end": 84.9
+  },
+  {
+    "id": 5,
+    "topic": 1,
+    "kind": "presenter",
+    "en_start": 84.933,
+    "en_end": 105.1
+  },
+  {
+    "id": 6,
+    "topic": 1,
+    "kind": "screen",
+    "en_start": 105.133,
+    "en_end": 114.333
+  },
+  {
+    "id": 7,
+    "topic": 1,
+    "kind": "presenter",
+    "en_start": 114.366,
+    "en_end": 143.217
+  },
+  {
+    "id": 8,
+    "topic": 1,
+    "kind": "screen",
+    "en_start": 143.25,
+    "en_end": 169.767
+  },
+  {
+    "id": 9,
+    "topic": 1,
+    "kind": "presenter",
+    "en_start": 169.8,
+    "en_end": 174.75
+  }
+]
