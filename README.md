@@ -2,6 +2,32 @@
 
 Versión en español de [@ng-news](https://www.youtube.com/@ng-news) para [@ng-news-es](https://www.youtube.com/@ng-news-es).
 
+## Instalación
+
+Se hace una vez por máquina. Detalle y solución de problemas en [SETUP.md](SETUP.md).
+
+**Requisitos:** Node.js 22+, pnpm, ffmpeg, [uv](https://docs.astral.sh/uv/) y [Claude Code](https://claude.com/claude-code). Para transcribir en local hace falta una GPU NVIDIA (en WSL basta el driver de Windows).
+
+```bash
+git clone git@github.com:nicobytes/ng-news-videos.git
+cd ng-news-videos
+pnpm install                          # hyperframes y playwright, con la versión fijada
+pnpm exec playwright install chromium
+uv sync                               # Python 3.11: yt-dlp, faster-whisper, librosa, torch
+```
+
+Convierte el modelo de Whisper una sola vez (descarga unos 3 GB la primera vez):
+
+```bash
+uv run ct2-transformers-converter --model openai/whisper-large-v3 \
+  --output_dir ~/.cache/ng-news/whisper-large-v3-ct2 \
+  --copy_files tokenizer.json preprocessor_config.json --quantization float16
+```
+
+Las skills ya vienen en `.agents/skills/`. Abre la sesión de Claude Code en esta carpeta para que carguen (si falta alguna, `npx hyperframes skills`).
+
+> Los videos, audios y renders **no se versionan** (`.gitignore`): en un clon nuevo hay que volver a poner los MP4 en `videos/<slug>/assets/`.
+
 ## Uso
 
 Las skills se cargan al iniciar la sesión: abre siempre una sesión nueva en esta carpeta, en la app de Claude o desde la terminal:
