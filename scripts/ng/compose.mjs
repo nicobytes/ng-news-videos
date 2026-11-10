@@ -41,7 +41,7 @@ const cutlist = data("cutlist.json");
 const episode = maybe("episode.json", {});
 const interviews = maybe("interviews.json", []);
 const crop = episode.es_crop ?? { x: 559, y: 333, w: 2594 };
-const font = episode.caption_font ?? "SpaceGrotesk";
+const font = episode.caption_font ?? "Montserrat"; // same face as the EN right panel titles
 const enDissolve = episode.en_dissolve ?? 0; // seconds of EN dissolve on each side of a cut
 
 // ---- ES words, proofread --------------------------------------------------------------------

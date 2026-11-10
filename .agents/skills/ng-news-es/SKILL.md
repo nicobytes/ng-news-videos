@@ -45,6 +45,7 @@ Run from the workspace root, `S=videos/<slug>`. Every step writes to `$S/data/`.
    - right panel out of step with the block
    - caption overflow, 3 lines, words ending a line on "de", wrong names
    - host face badly cropped
+   - caption font different from the right-panel titles (both must be Montserrat 700)
 4. **Score 1–10** with evidence for each: hook (first 2 s), mobile legibility (360 px), caption craft, motion, cut quality, EN-format fidelity, audio/caption sync (from `sync.json`), loudness. A score with no evidence does not count.
 5. Fix the 3 worst problems (data JSON or `compose.mjs`), recompose, check, review again. Repeat until all are ≥ 8, max 5 iterations; if something stays below 8, report it instead of rendering silently.
 6. Save the table in `renders/review/scorecard.md`. Only then render the final.

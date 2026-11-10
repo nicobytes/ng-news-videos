@@ -21,6 +21,7 @@ Reglas fijas de NG News:
 - **El panel derecho no se traduce**: título y viñetas quedan en inglés.
 - Panel izquierdo `presenter` → presentador ES. Panel `screen` (grabación de pantalla, web, imagen, webcam de invitado) → se conserva.
 - Subtítulos y audio van en español. Los subtítulos EN no deben verse nunca.
+- Los subtítulos usan la misma tipografía que los títulos del panel derecho: Montserrat 700.
 - El host nunca lee las entrevistas: conservan imagen y audio originales, con subtítulos en español del mismo estilo.
 - Términos técnicos (Angular, signals, etc.) quedan en inglés según `glossary.json`.
 - Nunca se renderiza el final sin pasar el ciclo de autocrítica (todas las puntuaciones ≥ 8).

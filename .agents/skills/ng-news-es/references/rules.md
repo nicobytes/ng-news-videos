@@ -28,7 +28,7 @@ Follows the rail contract of `/embedded-captions` (`references/rail.md`). The ma
 - Word fill: each word goes dim to white as spoken, with a magenta edge and a small lift (technique of `shared/blocks/caption-gradient-fill.html`).
 - Interview captions look the same: same font and word fill, spread over each line because a translation has no word timing.
 - Emphasis: numbers and glossary terms (except Angular) stay pink.
-- Font: Space Grotesk 700, 48 px (approved by the user on 26-17). Alternatives in `templates/ng-news/fonts/`, set `caption_font` in `data/episode.json` (`Sora`, `Outfit`).
+- Font: Montserrat 700, 48 px, the same face as the titles and bullets of the EN right panel (user rule since 26-18: titles and captions share one typography). Do not change it per episode; `caption_font` in `data/episode.json` (files in `templates/ng-news/fonts/`) exists only for an explicit user request.
 
 ## Text
 
