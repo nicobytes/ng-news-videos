@@ -25,7 +25,9 @@
     "Webpack",
     "PrimeTek",
     "A2UI",
-    "routerResource"
+    "routerResource",
+    "CopilotKit",
+    "AG-UI"
   ],
   "asr_fixes": {
     "Engie News": "NG News",
@@ -38,6 +40,12 @@
     "PrimeTech": "PrimeTek",
     "Prime UI": "PrimeUI",
     "módulo Federation": "Module Federation",
-    "micro -frontends": "micro-frontends"
+    "micro -frontends": "micro-frontends",
+    "Copilot Kit": "CopilotKit",
+    "Copilot Git": "CopilotKit",
+    "Ecopilot Kit": "CopilotKit",
+    "AGUI": "AG-UI",
+    "Civil Use AI": "Soverius AI",
+    "Breaking Chains": "breaking changes"
   }
 }

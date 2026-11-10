@@ -13,7 +13,8 @@
 //   transcript.es.json     word timestamps of the Spanish recording
 //   caption_fixes.json     optional [{from, to}] word-sequence corrections (proofreading step)
 //   interviews.json        optional, lines of each interview (align.py prepare)
-//   episode.json           optional {es_crop:{x,y,w}, caption_font} (defaults below)
+//   episode.json           optional {es_crop:{x,y,w[,h]}, es_box:{y,h}, en_dissolve, caption_font}
+//                          (es_crop.h keeps a non-16:9 webcam, e.g. 1:1; es_box makes it taller than the panel)
 // Output: index.html, data/timeline.json and these cached media files:
 //   assets/es/presenter.mp4  16:9 face crop at 2x panel size (4K-ready)
 //   assets/es/voice.wav      ES audio normalized to -16 LUFS
@@ -41,6 +42,7 @@ const episode = maybe("episode.json", {});
 const interviews = maybe("interviews.json", []);
 const crop = episode.es_crop ?? { x: 559, y: 333, w: 2594 };
 const font = episode.caption_font ?? "SpaceGrotesk";
+const enDissolve = episode.en_dissolve ?? 0; // seconds of EN dissolve on each side of a cut
 
 // ---- ES words, proofread --------------------------------------------------------------------
 const rawT = data("transcript.es.json");
@@ -76,12 +78,23 @@ for (const { from, to } of maybe("caption_fixes.json", [])) {
 const esDir = join(dir, "assets/es");
 const presenter = join(esDir, "presenter.mp4");
 const stamp = join(esDir, "presenter.crop.json");
-const want = JSON.stringify(crop);
+// The host area: the left panel, or a taller box (es_box {y, h}, centered on the panel) when the
+// webcam is not 16:9 and should use the height free between the frame top and the caption bar.
+const PANEL = { x: 110, y: 174, w: 750, h: 422 };
+const box = crop.h && episode.es_box ? episode.es_box : { y: PANEL.y, h: PANEL.h };
+const area = { x: PANEL.x, y: Math.min(PANEL.y, box.y), w: PANEL.w };
+area.h = Math.max(PANEL.y + PANEL.h, box.y + box.h) - area.y;
+const want = JSON.stringify({ crop, box });
 if (!existsSync(presenter) || !existsSync(stamp) || readFileSync(stamp, "utf8") !== want) {
-  const h = Math.round((crop.w * 9) / 16);
+  // es_crop.h set (e.g. a 1:1 webcam): keep that aspect at the box height, black around it so the
+  // EN host stays covered. Without h: a 16:9 crop that fills the panel. Encoded at 2x (4K-ready).
+  const h = crop.h ?? Math.round((crop.w * 9) / 16);
+  const vf = crop.h
+    ? `crop=${crop.w}:${h}:${crop.x}:${crop.y},scale=-2:${box.h * 2}:flags=lanczos,pad=${area.w * 2}:${area.h * 2}:(ow-iw)/2:${(box.y - area.y) * 2}:black,fps=30`
+    : `crop=${crop.w}:${h}:${crop.x}:${crop.y},scale=1500:844:flags=lanczos,fps=30`;
   execFileSync(
     "ffmpeg",
-    ["-y", "-v", "error", "-i", join(esDir, "recording.mp4"), "-vf", `crop=${crop.w}:${h}:${crop.x}:${crop.y},scale=1500:844:flags=lanczos,fps=30`,
+    ["-y", "-v", "error", "-i", join(esDir, "recording.mp4"), "-vf", vf,
      "-c:v", "libx264", "-crf", "16", "-preset", "fast", "-g", "30", "-an", presenter],
     { stdio: "inherit" },
   );
@@ -130,13 +143,17 @@ entries.forEach((e, i) => {
     return;
   }
   const b = e.block;
-  const enLen = b.en_end - b.en_start - 0.07; // 2 frames of margin before the next shot
+  // episodes cut with dissolves (26-18: ~0.2 s each side) would show both shots blended at the
+  // block edges: skip the dissolve at the start and stop before it at the end
+  const skipIn = b.id === blocks[0].id ? 0 : enDissolve;
+  const skipOut = b.id === blocks[blocks.length - 1].id ? 0 : enDissolve;
+  const enLen = b.en_end - b.en_start - skipIn - skipOut - 0.07; // 2 frames of margin before the next shot
   const blockTotal = blockTotals.get(b.id);
   const before = used.get(b.id) ?? 0;
   used.set(b.id, before + e.dur);
   // never overrun the block (next shot would flash in); speed up at most 1.25x, trim the rest
   const rate = Math.min(1.25, enLen / blockTotal);
-  const enIn = +(b.en_start + before * rate).toFixed(3);
+  const enIn = +(b.en_start + skipIn + before * rate).toFixed(3);
   baseHtml += `      <video id="b${i}" class="clip base" src="assets/en/hq.mp4" data-start="${e.start}" data-duration="${e.dur}" data-media-start="${enIn}" data-playback-rate="${rate.toFixed(3)}" data-track-index="0" muted playsinline></video>\n`;
   if (e.kind === "presenter") {
     hostHtml += `        <video id="h${i}" class="clip host" src="assets/es/presenter.mp4" data-start="${e.start}" data-duration="${e.dur}" data-media-start="${e.es_in}" data-track-index="1" muted playsinline></video>\n`;
@@ -256,8 +273,8 @@ const html = `<!doctype html>
       #root { position: relative; width: 1920px; height: 1080px; overflow: hidden; background: #000; }
       .base { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
       /* left panel and caption bar rects: shared/brand/FRAME.md */
-      #left { position: absolute; left: 110px; top: 174px; width: 750px; height: 422px; overflow: hidden; }
-      .host { position: absolute; left: 0; top: 0; width: 750px; height: 422px; object-fit: cover; }
+      #left { position: absolute; left: ${area.x}px; top: ${area.y}px; width: ${area.w}px; height: ${area.h}px; overflow: hidden; }
+      .host { position: absolute; left: 0; top: 0; width: ${area.w}px; height: ${area.h}px; object-fit: cover; }
       #capbar { position: absolute; left: 72px; top: 700px; width: 1610px; height: 308px; background: #000; }
       .cap { position: absolute; left: 146px; top: 735px; width: 1454px; height: 235px; display: flex; align-items: center; justify-content: center; }
       .cap p { margin: 0; max-width: 1400px; font-family: "Caption", sans-serif; font-size: 48px; font-weight: 700; line-height: 1.28; word-spacing: 0.06em; text-align: center; text-wrap: balance; }

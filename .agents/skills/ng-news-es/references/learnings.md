@@ -31,6 +31,7 @@ Lo que se aprendió produciendo el episodio 26-17. Léelo antes de cambiar el pi
 - **Detección de cara (Haar) + comparación del fondo con el del presentador** acertó todos los bloques de 26-17 y distingue a invitados con webcam.
 - `opencv-python-headless` debe ser `<5`: OpenCV 5 quitó `CascadeClassifier`.
 - El EN usa cortes secos, sin fundidos. Muestrear a 4 fps deja el límite hasta 0,25 s fuera de sitio y **el host EN asomaba 2-3 frames en el corte**. `segment_en.py` ajusta cada límite al corte real (`exact_cut`, salto máximo entre frames a 30 fps).
+- **No todos los EN usan cortes secos.** 26-18 tiene fundidos de ~0,35 s a cada lado del corte: el host EN quedaba como fantasma sobre la pantalla, y la pantalla, más alta que el panel del presentador, asomaba por encima. `episode.json > en_dissolve` (0,4 en 26-18) hace que `compose.mjs` salte ese tramo al inicio y al final de cada bloque. Mídelo con la diferencia entre frames del panel izquierdo alrededor de cada corte.
 - Un plano del host de menos de 1,5 s se funde con el bloque anterior y quedaría visible en un bloque `screen`: `segment_en.py` lo avisa con `WARNING`.
 
 ## Tiempos y composición
@@ -38,6 +39,8 @@ Lo que se aprendió produciendo el episodio 26-17. Léelo antes de cambiar el pi
 - El audio ES manda. El EN se ajusta con `data-playback-rate`, siempre ≤ `enLen / duración ES` para no invadir el bloque siguiente, y a 1,25× como máximo.
 - El narrador ES sigue el mismo guion y orden, así que alinear por significado es directo. El ES suele ser ~8 % más corto.
 - Los bloques pueden no tener frase EN propia (una frase larga cruza dos bloques): reparte el ES por contenido.
+
+- **La grabación ES puede no ser 16:9.** 26-18 llegó en 1280×720 con una webcam 1:1 de 720×720 entre barras negras, y la cara no cabía en ningún recorte 16:9. El usuario pidió **mantener el 1:1**: `es_crop` con `h` (`{x:280,y:0,w:720,h:720}`) escala a 844 de alto y rellena con negro hasta 1500×844, así el host EN sigue tapado. Luego pidió **ampliarlo al alto libre**: `es_box {y:94,h:553}` lo lleva de 422 a 553 px, con 24 px de aire bajo el borde superior (y=70) y sobre la barra divisoria (y=671). No recortes ni sigas la cara sin preguntar.
 
 ## Subtítulos
 
@@ -47,6 +50,9 @@ Lo que se aprendió produciendo el episodio 26-17. Léelo antes de cambiar el pi
 - Una frase puede cruzar un corte de plano cuando los clips siguen la misma toma; si no, el corte la parte a mitad ("...Federation de / Angular Architects").
 - El gris de las palabras pendientes es `#8b8b99`: más oscuro no se lee a 360 px.
 - Faster-whisper a veces une un término en un solo token tras `fix_terms.py` ("Native Federation"). En `caption_fixes.json` usa espacio duro para mantenerlo unido.
+
+- `fix_terms.py` deja términos de varias palabras en un solo token con espacio normal ("NG News,"), y `caption_fixes.json` no puede emparejarlos porque separa `from` por espacios. Corrige la palabra vecina en lugar de ese token. Un nombre de dos palabras que no debe partirse entre líneas ("Soverius AI") lleva espacio duro (U+00A0) en `to`.
+- Si una retoma está dentro de una frase sin pausa, parte las frases a mano en `sentences.es.json` (las lee `align.py build`). Pon los límites en el silencio real, medido por energía: whisper estira la palabra anterior sobre la pausa.
 
 ## Audio
 
