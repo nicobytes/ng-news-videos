@@ -1,0 +1,128 @@
+[
+ {
+  "id": 0,
+  "start": 0.0,
+  "end": 5.42,
+  "text": "Hello, my name is Rainer Hanekamp and this is NG News with the latest updates from the Angular community."
+ },
+ {
+  "id": 1,
+  "start": 5.96,
+  "end": 16.1,
+  "text": "The Angular team decided to switch the release frequency for major versions from half a year to one year and that is effective immediately."
+ },
+ {
+  "id": 2,
+  "start": 16.78,
+  "end": 26.3,
+  "text": "It also means that we won't get Angular 23 later this year but in May or early June 2027."
+ },
+ {
+  "id": 3,
+  "start": 26.92,
+  "end": 31.06,
+  "text": "That does not mean that we are getting new features later."
+ },
+ {
+  "id": 4,
+  "start": 31.38,
+  "end": 34.76,
+  "text": "New features can always be added in minor versions."
+ },
+ {
+  "id": 5,
+  "start": 35.1,
+  "end": 42.44,
+  "text": "And the same is also true for features which are getting upgraded from experimental status or from developer preview."
+ },
+ {
+  "id": 6,
+  "start": 43.06,
+  "end": 49.42,
+  "text": "What is going to change, though, is the amount of breaking changes, because they can only happen in a major version."
+ },
+ {
+  "id": 7,
+  "start": 49.64,
+  "end": 65.84,
+  "text": "According to the Angular team, the half -year pace was reported to be an issue you for enterprises one also has to say that one major per year also makes it easier for library developers because the amount of work for updating to the new"
+ },
+ {
+  "id": 8,
+  "start": 65.84,
+  "end": 87.18,
+  "text": "angular major is now half the work which is 22 .1 is already going to be released this week that's the week of july the 27th and also in the version 22 range we can expect now four to six minor releases copilot kit is"
+ },
+ {
+  "id": 9,
+  "start": 87.18,
+  "end": 112.24,
+  "text": "behind the standard agui which is the foundation for agent driven uis including formats like a2ui now until now the angular support was not open source and that has changed It went public already in June, and last week came the announcement that CoPilotKit is"
+ },
+ {
+  "id": 10,
+  "start": 112.24,
+  "end": 113.86,
+  "text": "available for Angular as well."
+ },
+ {
+  "id": 11,
+  "start": 114.12,
+  "end": 116.3,
+  "text": "Now, before I continue, a disclaimer."
+ },
+ {
+  "id": 12,
+  "start": 116.74,
+  "end": 128.52,
+  "text": "In NG News, we have strict rules which does not allow self -promotion, except the speaker is part of a team, which is the case here."
+ },
+ {
+  "id": 13,
+  "start": 128.52,
+  "end": 138.82,
+  "text": "because the Angular integration was done in collaboration with Soverius AI, which is now also the maintainer of the Angular part."
+ },
+ {
+  "id": 14,
+  "start": 139.06,
+  "end": 142.82,
+  "text": "And Soverius AI, that's Murat Sari and myself."
+ },
+ {
+  "id": 15,
+  "start": 143.18,
+  "end": 146.82,
+  "text": "The Angular integration is part of the Copilot kit repository."
+ },
+ {
+  "id": 16,
+  "start": 147.06,
+  "end": 160.32,
+  "text": "And in the announcement blog, you will also find a link to a demo application, which showcases several features like tool calling, link, agentic UI, generative UI, and more."
+ },
+ {
+  "id": 17,
+  "start": 161.4,
+  "end": 169.36,
+  "text": "Other content creators have already updated their content, for example, Manfred Steyer with his article series on agentic UI."
+ },
+ {
+  "id": 18,
+  "start": 170.0,
+  "end": 170.7,
+  "text": "And that's it."
+ },
+ {
+  "id": 19,
+  "start": 170.78,
+  "end": 173.9,
+  "text": "I wish you a nice week, and see you in the next episode."
+ },
+ {
+  "id": 20,
+  "start": 174.06,
+  "end": 174.58,
+  "text": "Goodbye."
+ }
+]

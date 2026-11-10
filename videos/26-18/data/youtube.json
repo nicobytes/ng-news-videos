@@ -1,0 +1,52 @@
+{
+  "titles": [
+    "Ng-News en español 26/18: Angular pasa a un major por año y CopilotKit",
+    "Ng-News en español 26/18: CopilotKit para Angular, AG-UI y A2UI",
+    "Ng-News en español 26/18: Angular 23 en 2027 y menos breaking changes"
+  ],
+  "description": "Angular cambia su ritmo de lanzamientos: desde ahora habrá un solo major por año, así que Angular 23 llega en mayo o junio de 2027. Te explicamos por qué no se retrasan las nuevas funcionalidades, qué pasa con los breaking changes y por qué ayuda a empresas y librerías. Además, CopilotKit, que está detrás del estándar AG-UI, ya está disponible para Angular como open source, con una demo de tool calling, A2UI y Generative UI.",
+  "tags": [
+    "Angular",
+    "Angular en español",
+    "Angular 23",
+    "ciclo de lanzamientos de Angular",
+    "Angular 22.1",
+    "CopilotKit",
+    "CopilotKit Angular",
+    "AG-UI",
+    "A2UI",
+    "Agentic UI"
+  ],
+  "chapters": [
+    {
+      "time": "00:00",
+      "title": "Angular pasa a un major por año"
+    },
+    {
+      "time": "00:20",
+      "title": "Funcionalidades en minor y breaking changes"
+    },
+    {
+      "time": "00:37",
+      "title": "Por qué el cambio y Angular 22.1"
+    },
+    {
+      "time": "00:55",
+      "title": "CopilotKit llega a Angular"
+    },
+    {
+      "time": "01:12",
+      "title": "Aclaración: Soverius AI y NG News"
+    },
+    {
+      "time": "01:39",
+      "title": "Demo, A2UI y artículos de Agentic UI"
+    }
+  ],
+  "links": [
+    "https://angular.dev/reference/releases",
+    "https://www.copilotkit.ai/blog/copilotkit-for-angular",
+    "https://soverius.ai/blog/soverius-ai-is-now-maintaining-copilotkit-for-angular",
+    "https://www.angulararchitects.io/en/blog/integrating-a2ui-with-ag-ui-in-angular/"
+  ]
+}

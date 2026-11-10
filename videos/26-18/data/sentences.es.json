@@ -1,0 +1,116 @@
+[
+ {
+  "id": 0,
+  "start": 0.0,
+  "end": 5.34,
+  "text": "Hola, mi nombre es Nicolás Molina y esto es Engineers en Español con las últimas novedades de la comunidad en Angular."
+ },
+ {
+  "id": 1,
+  "start": 5.46,
+  "end": 13.36,
+  "text": "El equipo de Angular decidió cambiar el intervalo de lanzamiento de las versiones Mayor de medio año a un año completo, y el cambio es efecto inmediato."
+ },
+ {
+  "id": 2,
+  "start": 13.56,
+  "end": 20.28,
+  "text": "Esto significa que no tendremos Angular 23 a finales de este año, sino a mayo o a principios de junio del 2027."
+ },
+ {
+  "id": 3,
+  "start": 20.5,
+  "end": 22.8,
+  "text": "Eso no quiere decir que las nuevas funcionalidades lleguen más tarde."
+ },
+ {
+  "id": 4,
+  "start": 22.94,
+  "end": 31.44,
+  "text": "Las funcionalidades nuevas siempre se pueden añadir en versiones Minor, Y lo mismo aplica a las funcionalidades que pasan del estado experimental o de Developer Preview a Stable."
+ },
+ {
+  "id": 5,
+  "start": 31.52,
+  "end": 37.08,
+  "text": "Lo que sí va a cambiar es la cantidad de Breaking Chains, porque solo pueden ocurrir en una versión Mayor."
+ },
+ {
+  "id": 6,
+  "start": 37.22,
+  "end": 41.54,
+  "text": "Según el equipo de Angular, el ritmo de medio año se reportó como un problema dentro de las empresas."
+ },
+ {
+  "id": 7,
+  "start": 41.82,
+  "end": 51.12,
+  "text": "También hay que decir que una Mayor por año facilita el trabajo de los desarrolladores de librerías, porque el esfuerzo para actualizar a la nueva versión Mayor de Angular ahora es a la mitad."
+ },
+ {
+  "id": 8,
+  "start": 51.12,
+  "end": 55.16,
+  "text": "Angular 22 .1 ya se lanzó, la semana del 27 de julio"
+ },
+ {
+  "id": 9,
+  "start": 55.58,
+  "end": 59.9,
+  "text": "Y dentro de esa versión podemos esperar entre 4 y 6 meses entre una versión mayor"
+ },
+ {
+  "id": 10,
+  "start": 59.9,
+  "end": 64.86,
+  "text": "Y cuando saliera la versión 22, ahora podemos esperar unos 4 o 6 meses entre versión minor"
+ },
+ {
+  "id": 11,
+  "start": 65.46,
+  "end": 73.64,
+  "text": "En otras noticias, Copilot Kit, que está detrás del estándar AGUI Que es la base de las interfaces de usuario impulsadas por agentes, incluyendo formatos como A2UI"
+ },
+ {
+  "id": 12,
+  "start": 73.64,
+  "end": 77.4,
+  "text": "Hasta ahora, el soporte para Angular no era open source, y esto ha cambiado,"
+ },
+ {
+  "id": 13,
+  "start": 77.44,
+  "end": 82.72,
+  "text": "se hizo público en junio y ahora ya se hizo el anuncio de que Ecopilot Kit también está disponible para Angular"
+ },
+ {
+  "id": 14,
+  "start": 82.72,
+  "end": 96.48,
+  "text": "ahora bien, antes de continuar hay una aclaración en NG News, en el formato en inglés, tenemos reglas estrictas o hay reglas estrictas para no permitir la autopromoción, excepto cuando quien presenta forma parte del equipo y este es el caso, ¿por qué?"
+ },
+ {
+  "id": 15,
+  "start": 96.52,
+  "end": 109.72,
+  "text": "porque la integración de Angular, la Ecopilot Kit se hizo en colaboración con Civil Use AI, que ahora también es mantenedor de la parte de Angular y Civil Use AI es la empresa de Muratari y de Reiner, que es el creador de NG News en inglés."
+ },
+ {
+  "id": 16,
+  "start": 109.9,
+  "end": 121.52,
+  "text": "La integración con Angular forma parte del repositorio de Copilot Git y en el blog del anuncio también encontrarán un enlace con una aplicación de demostración que se muestran varias funcionalidades como el Tool Calling, A2UI, Generative UI y mucho más."
+ },
+ {
+  "id": 17,
+  "start": 121.86,
+  "end": 128.0,
+  "text": "Otros cadáveres de contenido ya han actualizado su material por ejemplo Manfred Stahler con su serie de artículos de Igentic UI."
+ },
+ {
+  "id": 18,
+  "start": 128.2,
+  "end": 132.1,
+  "text": "Y eso es todo espero que tengas un excelente semana, nos vemos en el próximo episodio, hasta luego."
+ }
+]

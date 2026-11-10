@@ -1,4 +1,15 @@
 {
   "slug": "26-18",
-  "host": "Nicolás Molina"
+  "host": "Nicolás Molina",
+  "es_crop": {
+    "x": 280,
+    "y": 0,
+    "w": 720,
+    "h": 720
+  },
+  "en_dissolve": 0.4,
+  "es_box": {
+    "y": 94,
+    "h": 553
+  }
 }

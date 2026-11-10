@@ -1,0 +1,4 @@
+https://angular.dev/reference/releases
+https://www.copilotkit.ai/blog/copilotkit-for-angular
+https://soverius.ai/blog/soverius-ai-is-now-maintaining-copilotkit-for-angular
+https://www.angulararchitects.io/en/blog/integrating-a2ui-with-ag-ui-in-angular/
