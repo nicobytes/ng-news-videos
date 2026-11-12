@@ -1,0 +1,254 @@
+[
+  {
+    "id": 0,
+    "topic": 0,
+    "kind": "presenter",
+    "en_start": 0.0,
+    "en_end": 6.133
+  },
+  {
+    "id": 1,
+    "topic": 3,
+    "kind": "presenter",
+    "en_start": 6.166,
+    "en_end": 28.983
+  },
+  {
+    "id": 2,
+    "topic": 4,
+    "kind": "screen",
+    "en_start": 29.016,
+    "en_end": 44.417
+  },
+  {
+    "id": 3,
+    "topic": 5,
+    "kind": "presenter",
+    "en_start": 44.45,
+    "en_end": 65.017
+  },
+  {
+    "id": 4,
+    "topic": 6,
+    "kind": "screen",
+    "en_start": 65.05,
+    "en_end": 85.95
+  },
+  {
+    "id": 5,
+    "topic": 9,
+    "kind": "presenter",
+    "en_start": 85.983,
+    "en_end": 108.983
+  },
+  {
+    "id": 6,
+    "topic": 10,
+    "kind": "presenter",
+    "en_start": 109.016,
+    "en_end": 115.267
+  },
+  {
+    "id": 7,
+    "topic": 11,
+    "kind": "screen",
+    "en_start": 115.3,
+    "en_end": 117.867
+  },
+  {
+    "id": 8,
+    "topic": 12,
+    "kind": "screen",
+    "en_start": 117.9,
+    "en_end": 122.867
+  },
+  {
+    "id": 9,
+    "topic": 13,
+    "kind": "screen",
+    "en_start": 122.9,
+    "en_end": 128.083
+  },
+  {
+    "id": 10,
+    "topic": 14,
+    "kind": "screen",
+    "en_start": 128.116,
+    "en_end": 131.483
+  },
+  {
+    "id": 11,
+    "topic": 15,
+    "kind": "screen",
+    "en_start": 131.516,
+    "en_end": 137.367
+  },
+  {
+    "id": 12,
+    "topic": 16,
+    "kind": "screen",
+    "en_start": 137.4,
+    "en_end": 140.983
+  },
+  {
+    "id": 13,
+    "topic": 17,
+    "kind": "screen",
+    "en_start": 141.016,
+    "en_end": 145.05
+  },
+  {
+    "id": 14,
+    "topic": 20,
+    "kind": "presenter",
+    "en_start": 145.083,
+    "en_end": 174.767
+  },
+  {
+    "id": 15,
+    "topic": 21,
+    "kind": "screen",
+    "en_start": 174.8,
+    "en_end": 178.983
+  },
+  {
+    "id": 16,
+    "topic": 22,
+    "kind": "screen",
+    "en_start": 179.016,
+    "en_end": 183.367
+  },
+  {
+    "id": 17,
+    "topic": 23,
+    "kind": "screen",
+    "en_start": 183.4,
+    "en_end": 186.667
+  },
+  {
+    "id": 18,
+    "topic": 24,
+    "kind": "screen",
+    "en_start": 186.7,
+    "en_end": 192.167
+  },
+  {
+    "id": 19,
+    "topic": 25,
+    "kind": "screen",
+    "en_start": 192.2,
+    "en_end": 194.483
+  },
+  {
+    "id": 20,
+    "topic": 26,
+    "kind": "screen",
+    "en_start": 194.516,
+    "en_end": 196.767
+  },
+  {
+    "id": 21,
+    "topic": 27,
+    "kind": "screen",
+    "en_start": 196.8,
+    "en_end": 199.167
+  },
+  {
+    "id": 22,
+    "topic": 28,
+    "kind": "screen",
+    "en_start": 199.2,
+    "en_end": 201.483
+  },
+  {
+    "id": 23,
+    "topic": 29,
+    "kind": "screen",
+    "en_start": 201.516,
+    "en_end": 203.983
+  },
+  {
+    "id": 24,
+    "topic": 30,
+    "kind": "screen",
+    "en_start": 204.016,
+    "en_end": 206.733
+  },
+  {
+    "id": 25,
+    "topic": 32,
+    "kind": "screen",
+    "en_start": 206.766,
+    "en_end": 216.133
+  },
+  {
+    "id": 26,
+    "topic": 33,
+    "kind": "screen",
+    "en_start": 216.166,
+    "en_end": 224.05
+  },
+  {
+    "id": 27,
+    "topic": 34,
+    "kind": "screen",
+    "en_start": 224.083,
+    "en_end": 228.45
+  },
+  {
+    "id": 28,
+    "topic": 35,
+    "kind": "screen",
+    "en_start": 228.483,
+    "en_end": 237.083
+  },
+  {
+    "id": 29,
+    "topic": 36,
+    "kind": "screen",
+    "en_start": 237.116,
+    "en_end": 243.05
+  },
+  {
+    "id": 30,
+    "topic": 37,
+    "kind": "screen",
+    "en_start": 243.083,
+    "en_end": 250.767
+  },
+  {
+    "id": 31,
+    "topic": 38,
+    "kind": "screen",
+    "en_start": 250.8,
+    "en_end": 256.767
+  },
+  {
+    "id": 32,
+    "topic": 39,
+    "kind": "screen",
+    "en_start": 256.8,
+    "en_end": 267.617
+  },
+  {
+    "id": 33,
+    "topic": 40,
+    "kind": "screen",
+    "en_start": 267.65,
+    "en_end": 272.483
+  },
+  {
+    "id": 34,
+    "topic": 42,
+    "kind": "presenter",
+    "en_start": 272.516,
+    "en_end": 278.667
+  },
+  {
+    "id": 35,
+    "topic": 45,
+    "kind": "screen",
+    "en_start": 278.7,
+    "en_end": 281.75
+  }
+]

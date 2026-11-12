@@ -1,0 +1,149 @@
+[
+  {
+    "id": 0,
+    "topic": 0,
+    "kind": "presenter",
+    "en_start": 0.0,
+    "en_end": 25.033
+  },
+  {
+    "id": 1,
+    "topic": 0,
+    "kind": "screen",
+    "en_start": 25.066,
+    "en_end": 40.567
+  },
+  {
+    "id": 2,
+    "topic": 1,
+    "kind": "presenter",
+    "en_start": 40.6,
+    "en_end": 55.65
+  },
+  {
+    "id": 3,
+    "topic": 1,
+    "kind": "screen",
+    "en_start": 55.683,
+    "en_end": 71.883
+  },
+  {
+    "id": 4,
+    "topic": 2,
+    "kind": "presenter",
+    "en_start": 71.916,
+    "en_end": 90.267
+  },
+  {
+    "id": 5,
+    "topic": 2,
+    "kind": "screen",
+    "en_start": 90.3,
+    "en_end": 97.533
+  },
+  {
+    "id": 6,
+    "topic": 3,
+    "kind": "presenter",
+    "en_start": 97.566,
+    "en_end": 104.567
+  },
+  {
+    "id": 7,
+    "topic": 3,
+    "kind": "screen",
+    "en_start": 104.6,
+    "en_end": 114.45
+  },
+  {
+    "id": 8,
+    "topic": 4,
+    "kind": "presenter",
+    "en_start": 114.483,
+    "en_end": 145.733
+  },
+  {
+    "id": 9,
+    "topic": 4,
+    "kind": "screen",
+    "en_start": 145.766,
+    "en_end": 176.167
+  },
+  {
+    "id": 10,
+    "topic": 4,
+    "kind": "presenter",
+    "en_start": 176.2,
+    "en_end": 189.95
+  },
+  {
+    "id": 11,
+    "topic": 5,
+    "kind": "presenter",
+    "en_start": 189.983,
+    "en_end": 199.767
+  },
+  {
+    "id": 12,
+    "topic": 5,
+    "kind": "screen",
+    "en_start": 199.8,
+    "en_end": 206.567
+  },
+  {
+    "id": 13,
+    "topic": 6,
+    "kind": "presenter",
+    "en_start": 206.6,
+    "en_end": 241.667
+  },
+  {
+    "id": 14,
+    "topic": 6,
+    "kind": "screen",
+    "en_start": 241.7,
+    "en_end": 259.083
+  },
+  {
+    "id": 15,
+    "topic": 7,
+    "kind": "presenter",
+    "en_start": 259.116,
+    "en_end": 272.15
+  },
+  {
+    "id": 16,
+    "topic": 7,
+    "kind": "screen",
+    "en_start": 272.183,
+    "en_end": 293.767
+  },
+  {
+    "id": 17,
+    "topic": 8,
+    "kind": "presenter",
+    "en_start": 293.8,
+    "en_end": 295.867
+  },
+  {
+    "id": 18,
+    "topic": 8,
+    "kind": "screen",
+    "en_start": 295.9,
+    "en_end": 347.733
+  },
+  {
+    "id": 19,
+    "topic": 9,
+    "kind": "presenter",
+    "en_start": 347.766,
+    "en_end": 349.633
+  },
+  {
+    "id": 20,
+    "topic": 10,
+    "kind": "presenter",
+    "en_start": 349.666,
+    "en_end": 351.75
+  }
+]

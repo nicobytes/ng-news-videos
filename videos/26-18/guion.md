@@ -1,6 +1,6 @@
 # Guion Ng-News en español 26/18
 
-Duración estimada: 02:34 (417 palabras)
+Duración estimada: 02:33 (414 palabras)
 
 ## Introducción
 
@@ -16,11 +16,11 @@ Lo que sí va a cambiar es la cantidad de breaking changes, porque solo pueden o
 
 Según el equipo de Angular, el ritmo de medio año se reportó como un problema para las empresas. También hay que decir que un major por año facilita el trabajo a los desarrolladores de librerías, porque el esfuerzo para actualizar a la nueva versión major de Angular ahora es la mitad.
 
-Angular 22.1 ya se lanzará esta semana, la semana del 27 de julio. Y dentro de la versión 22, ahora podemos esperar entre cuatro y seis versiones minor.
+Angular 22.1 ya salió, se lanzó la semana del 27 de julio. Y dentro de la versión 22, ahora podemos esperar entre cuatro y seis versiones minor.
 
 ## CopilotKit llega a Angular
 
-En otras noticias, CopilotKit está detrás del estándar AG-UI, que es la base de las interfaces de usuario impulsadas por agentes, incluyendo formatos como A2UI. Hasta ahora, el soporte para Angular no era open source, y eso ha cambiado. Se hizo público en junio, y la semana pasada llegó el anuncio de que CopilotKit también está disponible para Angular.
+En otras noticias, CopilotKit está detrás del estándar AG-UI, que es la base de las interfaces de usuario impulsadas por agentes, incluyendo formatos como A2UI. Hasta ahora, el soporte para Angular no era open source, y eso ha cambiado. Se hizo público en junio, y después llegó el anuncio de que CopilotKit también está disponible para Angular.
 
 Ahora bien, antes de continuar, una aclaración. En NG News tenemos reglas estrictas que no permiten la autopromoción, excepto cuando quien presenta forma parte del equipo, y este es el caso. La integración con Angular se hizo en colaboración con Soverius AI, que ahora también es el mantenedor de la parte de Angular. Y Soverius AI es la empresa de Murat Sari y de Rainer Hahnekamp, el creador de NG News.
 

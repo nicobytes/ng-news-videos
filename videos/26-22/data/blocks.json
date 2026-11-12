@@ -1,0 +1,198 @@
+[
+  {
+    "id": 0,
+    "topic": 0,
+    "kind": "presenter",
+    "en_start": 0.0,
+    "en_end": 6.25
+  },
+  {
+    "id": 1,
+    "topic": 4,
+    "kind": "presenter",
+    "en_start": 6.283,
+    "en_end": 11.067
+  },
+  {
+    "id": 2,
+    "topic": 9,
+    "kind": "presenter",
+    "en_start": 11.1,
+    "en_end": 33.55
+  },
+  {
+    "id": 3,
+    "topic": 10,
+    "kind": "presenter",
+    "en_start": 33.583,
+    "en_end": 44.033
+  },
+  {
+    "id": 4,
+    "topic": 12,
+    "kind": "presenter",
+    "en_start": 44.066,
+    "en_end": 62.083
+  },
+  {
+    "id": 5,
+    "topic": 13,
+    "kind": "presenter",
+    "en_start": 62.116,
+    "en_end": 72.133
+  },
+  {
+    "id": 6,
+    "topic": 14,
+    "kind": "presenter",
+    "en_start": 72.166,
+    "en_end": 74.133
+  },
+  {
+    "id": 7,
+    "topic": 15,
+    "kind": "presenter",
+    "en_start": 74.166,
+    "en_end": 77.017
+  },
+  {
+    "id": 8,
+    "topic": 16,
+    "kind": "presenter",
+    "en_start": 77.05,
+    "en_end": 83.817
+  },
+  {
+    "id": 9,
+    "topic": 18,
+    "kind": "presenter",
+    "en_start": 83.85,
+    "en_end": 97.333
+  },
+  {
+    "id": 10,
+    "topic": 19,
+    "kind": "presenter",
+    "en_start": 97.366,
+    "en_end": 126.8
+  },
+  {
+    "id": 11,
+    "topic": 20,
+    "kind": "presenter",
+    "en_start": 126.833,
+    "en_end": 133.333
+  },
+  {
+    "id": 12,
+    "topic": 28,
+    "kind": "presenter",
+    "en_start": 133.366,
+    "en_end": 148.133
+  },
+  {
+    "id": 13,
+    "topic": 29,
+    "kind": "presenter",
+    "en_start": 148.166,
+    "en_end": 170.883
+  },
+  {
+    "id": 14,
+    "topic": 31,
+    "kind": "screen",
+    "en_start": 170.916,
+    "en_end": 183.267
+  },
+  {
+    "id": 15,
+    "topic": 34,
+    "kind": "presenter",
+    "en_start": 183.3,
+    "en_end": 214.633
+  },
+  {
+    "id": 16,
+    "topic": 34,
+    "kind": "screen",
+    "en_start": 214.666,
+    "en_end": 230.733
+  },
+  {
+    "id": 17,
+    "topic": 35,
+    "kind": "presenter",
+    "en_start": 230.766,
+    "en_end": 252.583
+  },
+  {
+    "id": 18,
+    "topic": 39,
+    "kind": "presenter",
+    "en_start": 252.616,
+    "en_end": 294.133
+  },
+  {
+    "id": 19,
+    "topic": 40,
+    "kind": "screen",
+    "en_start": 294.166,
+    "en_end": 362.133
+  },
+  {
+    "id": 20,
+    "topic": 43,
+    "kind": "presenter",
+    "en_start": 362.166,
+    "en_end": 393.483
+  },
+  {
+    "id": 21,
+    "topic": 45,
+    "kind": "presenter",
+    "en_start": 393.516,
+    "en_end": 399.95
+  },
+  {
+    "id": 22,
+    "topic": 45,
+    "kind": "screen",
+    "en_start": 399.983,
+    "en_end": 407.033
+  },
+  {
+    "id": 23,
+    "topic": 46,
+    "kind": "presenter",
+    "en_start": 407.066,
+    "en_end": 413.733
+  },
+  {
+    "id": 24,
+    "topic": 47,
+    "kind": "presenter",
+    "en_start": 413.766,
+    "en_end": 421.133
+  },
+  {
+    "id": 25,
+    "topic": 48,
+    "kind": "screen",
+    "en_start": 421.166,
+    "en_end": 446.55
+  },
+  {
+    "id": 26,
+    "topic": 51,
+    "kind": "presenter",
+    "en_start": 446.583,
+    "en_end": 452.867
+  },
+  {
+    "id": 27,
+    "topic": 55,
+    "kind": "screen",
+    "en_start": 452.9,
+    "en_end": 455.75
+  }
+]
